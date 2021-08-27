@@ -16,8 +16,8 @@ npm install
 To run this project, you will need to add the following environment variables to your .env file
 
 `TOKEN_KEY`
-'CLIENT_ID'
-'GUILD_ID'
+`CLIENT_ID`
+`GUILD_ID`
    
 ## Deployment
 
