@@ -4,10 +4,6 @@
 * Desc: A small discord bot to practice building with node.js
 */
 
-/* TODO */
-// ADD COMMENTS TO 'interactionCreate' TO BETTER UNDERSTAND IT
-// ADD COMMENTS TO 'deploy-commands.js' TO BETTER UNDERSTAND IT
-
 // REQUIRED PACKAGES
 require('dotenv').config();
 const fileSystem = require('fs');
@@ -33,6 +29,7 @@ client.once('ready', () => {
 	console.log(`${client.user.tag} is online!`);
 });
 
+// CHECK IF THE COMMAND THE USER ENTERED EXIST
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
