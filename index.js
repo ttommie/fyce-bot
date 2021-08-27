@@ -6,15 +6,45 @@
 
 // REQUIRED PACKAGES
 require('dotenv').config();
-const { Client, Intents } = require('discord.js');
+const fileSystem = require('fs');
+const { Client, Collection, Intents } = require('discord.js');
 
-// CREATE A NEW CLIENT INSTANCE
+// CREATE CLIENT INSTANCE
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-// ONCE THE CLIENT IS READY RUN THIS CODE ONCE
+// CREATE COLLECTION OF COMMANDS
+client.commands = new Collection();
+
+// SORT THROUGH COMMAND FOLDER TO LOOK FOR .JS FILES
+const commandFiles = fileSystem.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+// STORE COMMAND FILES FOUND INTO AN ARRAY
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.data.name, command);
+}
+
+// CONSOLE LOG WHEN CLIENT IS ONLINE
 client.once('ready', () => {
 	console.log(`${client.user.tag} is online!`);
 });
 
-// LOGIN INTO THE DISCORD CLIENT WITH GIVEN TOKEN
+// CHECK IF THE COMMAND THE USER ENTERED EXIST
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
+
+	const command = client.commands.get(interaction.commandName);
+
+	if (!command) return;
+
+	try {
+		await command.execute(interaction);
+	}
+	catch (err) {
+		console.error('Error: ' + err);
+		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+	}
+});
+
+// LOGIN INTO CLIENT INSTANCE USING TOKEN
 client.login(process.env.TOKEN_KEY);
