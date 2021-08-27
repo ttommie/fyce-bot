@@ -7,16 +7,8 @@ A Small bot to practice node.js development.
 Install my-project with npm
 
 ```bash
-  npm install fyce-bot
-  cd fyce-bot
-```
-    
-## Deployment
-
-To deploy this project run
-
-```bash
-  node . OR node index.js
+  git clone https://github.com/ttommie/fyce-bot.git
+  npm install
 ```
 
 ## Environment Variables
@@ -24,5 +16,11 @@ To deploy this project run
 To run this project, you will need to add the following environment variables to your .env file
 
 `TOKEN_KEY`
+   
+## Deployment
 
-  
+To deploy this project run
+
+```bash
+  node . OR node index.js
+```
