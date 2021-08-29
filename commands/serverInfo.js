@@ -12,7 +12,7 @@ serverInfoEmbed.setAuthor('Some name', 'https://i.imgur.com/AfFp7pu.png', 'https
 serverInfoEmbed.setDescription('Some description here');
 serverInfoEmbed.setThumbnail('https://i.imgur.com/AfFp7pu.png');
 
-// EXPORT EMBED COMMAND DATA TO NODE
+// EXPORT SERVERINFO COMMAND DATA TO NODE
 module.exports = ({
 	data: new SlashCommandBuilder()
 		.setName('serverinfo')
