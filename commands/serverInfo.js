@@ -4,12 +4,11 @@ const { MessageEmbed } = require('discord.js');
 
 // CREATE TEST EMBED
 const serverInfoEmbed = new MessageEmbed();
-serverInfoEmbed.setTitle('Some Title');
-serverInfoEmbed.setColor('#0099ff');
-serverInfoEmbed.setTitle('Some title');
+serverInfoEmbed.setTitle('Server Info Title');
+serverInfoEmbed.setColor('#333333');
 serverInfoEmbed.setURL('https://discord.js.org/');
-serverInfoEmbed.setAuthor('Some name', 'https://i.imgur.com/AfFp7pu.png', 'https://discord.js.org');
-serverInfoEmbed.setDescription('Some description here');
+serverInfoEmbed.setAuthor('Tommie', 'https://i.imgur.com/AfFp7pu.png', 'https://discord.js.org');
+serverInfoEmbed.setDescription('Server Info Description');
 serverInfoEmbed.setThumbnail('https://i.imgur.com/AfFp7pu.png');
 
 // EXPORT SERVERINFO COMMAND DATA TO NODE
@@ -18,6 +17,6 @@ module.exports = ({
 		.setName('serverinfo')
 		.setDescription('Basic Server Info.'),
 	async execute(interaction) {
-		await interaction.reply('Test Reply');
+		await interaction.reply({ embeds: [serverInfoEmbed] });
 	},
 });
