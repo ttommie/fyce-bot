@@ -26,3 +26,13 @@ To deploy this project run
 ```bash
 node . OR node index.js
 ```
+
+## Developers
+
+___
+
+[@ttommie](https://www.github.com/tommie)
+
+[@jaxOFW](https://www.github.com/jaxOFW)
+
+  
