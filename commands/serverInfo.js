@@ -8,20 +8,22 @@ module.exports = ({
 		.setName('serverinfo')
 		.setDescription('Basic Server Info.'),
 	async execute(interaction) {
+		// REFERENCE THE GUILD
+		const guild = interaction.guild;
 		// CREATE TEST EMBED
 		const serverInfoEmbed = new MessageEmbed();
 		serverInfoEmbed.setTitle('Server Information');
 		serverInfoEmbed.setColor('#36393F');
 		serverInfoEmbed.setURL('https://discord.js.org/');
-		serverInfoEmbed.setAuthor('Fyce Bot - /serverinfo', /* ICON IMAGE HERE */ 'https://github.com/ttommie/fyce-bot/');
-		serverInfoEmbed.setDescription('Server Info Description');
-		serverInfoEmbed.setThumbnail('https://i.imgur.com/AfFp7pu.png');
-
+		serverInfoEmbed.setAuthor('Fyce Bot - /serverinfo', interaction.user.avatarURL(), /* AVATAR ICON HERE */ 'https://github.com/ttommie/fyce-bot/');
+		serverInfoEmbed.setThumbnail(guild.iconURL());
 
 		await interaction.reply({ embeds: [serverInfoEmbed] });
 	},
 });
 
-/* TO-DO */
-// MAKE CONNECTION TO GUILD
-// SET UP SERVER EMBED WITH GUILD INFORMATION
+/* INFO TO DISPLAY */
+// NAME | REGION | OWNER
+// USERCNT | MEMBERCNT | BOTCNT
+// TEXT-CHANCNT | VOICE-CHANCNT | ROLESCNT
+// CREATION DATE OF SERVER
