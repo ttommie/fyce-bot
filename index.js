@@ -24,12 +24,7 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
-// CONSOLE LOG WHEN CLIENT IS ONLINE
-client.once('ready', () => {
-	console.log(`${client.user.tag} is online!`);
-});
-
-// CHECK IF THE COMMAND THE USER ENTERED EXIST
+// COMMAND HANDLER
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -49,6 +44,18 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+const eventFiles = fileSystem.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	}
+	else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
 
 // LOGIN INTO CLIENT INSTANCE USING TOKEN
 client.login(process.env.TOKEN_KEY);
