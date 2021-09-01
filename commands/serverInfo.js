@@ -34,6 +34,5 @@ module.exports = ({
 	},
 });
 
-/* INFO TO DISPLAY */
-// TEXT-CHANCNT | VOICE-CHANCNT | ROLESCNT
-// CREATION DATE OF SERVER
+/* TODO */
+// Fix Text & Voice Channel Count
