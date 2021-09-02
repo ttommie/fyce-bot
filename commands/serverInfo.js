@@ -23,8 +23,8 @@ module.exports = ({
 			{ name: 'Total Members', value: `${guild.memberCount}`, inline: true },
 			{ name: 'Users Count', value: `${guild.members.cache.filter(member => !member.user.bot).size}`, inline: true },
 			{ name: 'Bots Count', value: `${guild.members.cache.filter(member => member.user.bot).size}`, inline: true },
-			{ name: 'Text Channels', value: `${guild.channels.cache.filter(c => c.type === 'text').size}`, inline: true },
-			{ name: 'Voice Channels', value: `${guild.channels.cache.filter(c => c.type === 'voice').size}`, inline: true },
+			{ name: 'Text Channels', value: `${guild.channels.cache.filter(channels => channels.type === 'GUILD_TEXT').size}`, inline: true },
+			{ name: 'Voice Channels', value: `${guild.channels.cache.filter(c => c.type === 'GUILD_VOICE').size}`, inline: true },
 			{ name: 'Roles Count', value: `${guild.roles.cache.size}`, inline: true },
 		);
 		serverInfoEmbed.setFooter(`${guild.name} - Date Created`);
@@ -33,6 +33,3 @@ module.exports = ({
 		await interaction.reply({ embeds: [serverInfoEmbed] });
 	},
 });
-
-/* TODO */
-// Fix Text & Voice Channel Count
