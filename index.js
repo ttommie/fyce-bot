@@ -7,7 +7,7 @@
 // REQUIRED PACKAGES
 require('dotenv').config();
 const fileSystem = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, Discord } = require('discord.js');
 
 // CREATE CLIENT INSTANCE
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -45,17 +45,10 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-const eventFiles = fileSystem.readdirSync('./events').filter(file => file.endsWith('.js'));
-
-for (const file of eventFiles) {
-	const event = require(`./events/${file}`);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	}
-	else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-}
+// REQUIRE ALL HANDLERS
+['eventsHandler'].forEach(handler => {
+	require(`./handlers/${handler}`)(client, Discord);
+});
 
 // LOGIN INTO CLIENT INSTANCE USING TOKEN
 client.login(process.env.TOKEN_KEY);
