@@ -52,3 +52,8 @@ client.on('interactionCreate', async interaction => {
 
 // LOGIN INTO CLIENT INSTANCE USING TOKEN
 client.login(process.env.TOKEN_KEY);
+
+
+/* TODO */
+// SET UP COMMAND HANDLER
+// REMOVE THE COMMAND HANDLING FROM HERE
