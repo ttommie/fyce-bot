@@ -20,10 +20,3 @@ module.exports = ({
 		await interaction.reply({ embeds: [avatarViewerEmbed] });
 	},
 });
-
-/* TODO */
-// Add args for @ing other users
-// Add dynamic changing setTitle
-
-// NEXT COMMIT
-// Mention the reference to the user.

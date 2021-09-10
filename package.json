@@ -7,6 +7,24 @@
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
-  }
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12"
+  },
+  "name": "fyce-bot",
+  "description": "A Small bot to practice node.js development.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttommie/fyce-bot.git"
+  },
+  "author": "Tommie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttommie/fyce-bot/issues"
+  },
+  "homepage": "https://github.com/ttommie/fyce-bot#readme"
 }
