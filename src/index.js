@@ -16,7 +16,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 client.commands = new Collection();
 
 // SORT THROUGH COMMAND FOLDER TO LOOK FOR .JS FILES
-const commandFiles = fileSystem.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fileSystem.readdirSync('./src/commands').filter(file => file.endsWith('.js'));
 
 // REQUIRE THE .JS COMMAND FILES FROM THE COMMAND FOLDER
 for (const file of commandFiles) {
