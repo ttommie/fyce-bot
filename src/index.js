@@ -9,7 +9,7 @@ require('dotenv').config();
 const { Client, Collection, Intents, Discord } = require('discord.js');
 
 // CREATE CLIENT INSTANCE
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 // CREATE COLLECTION OF COMMANDS
 client.commands = new Collection();
