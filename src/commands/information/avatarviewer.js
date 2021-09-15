@@ -6,10 +6,19 @@ const { MessageEmbed } = require('discord.js');
 module.exports = ({
 	data: new SlashCommandBuilder()
 		.setName('avatar')
-		.setDescription('Display a players avatar.'),
+		.setDescription('Display a players avatar.')
+		.addUserOption(option =>
+			option.setName('target')
+				.setDescription('Target a user...')
+				.setRequired(false)),
 	async execute(interaction) {
-		// REFERENCE THE USER
-		const user = interaction.user;
+		// REFERENCE THE TARGET
+		let user = interaction.options.getUser('target');
+
+		// IF NO TARGET ASSIGN THE USER TO THE VARAIBLE
+		if (interaction.options.getUser('target') === null) {
+			user = interaction.user;
+		}
 		// CREATE TEST EMBED
 		const avatarViewerEmbed = new MessageEmbed();
 		avatarViewerEmbed.setColor('#36393F');
