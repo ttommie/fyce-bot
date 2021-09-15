@@ -24,7 +24,7 @@ To run this project, you will need to add the following environment variables to
 To deploy this project run
 
 ```bash
-node . OR node index.js
+node . OR node src/index.js
 ```
 
 ## Developers
