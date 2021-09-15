@@ -7,6 +7,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction) {
-		await interaction.reply('**Pong**!\n*This is a test command to verify the bot is up*');
+		await interaction.reply(`🏓 API Latency is ${Math.round(interaction.client.ws.ping)}ms`);
 	},
 };
