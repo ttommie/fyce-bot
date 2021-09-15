@@ -21,7 +21,3 @@ client.commands = new Collection();
 
 // LOGIN INTO CLIENT INSTANCE USING TOKEN
 client.login(process.env.TOKEN_KEY);
-
-
-/* TODO */
-// REMOVE THE COMMAND HANDLING FROM HERE
