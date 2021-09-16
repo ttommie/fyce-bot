@@ -27,9 +27,9 @@ module.exports = ({
 		whoisEmbed.setDescription(`${member}`);
 		whoisEmbed.setThumbnail(`${member.user.displayAvatarURL()}`);
 		whoisEmbed.addFields(
-			{ name: 'Register Date', value: `${moment(member.user.createdAt).format('ddd, DD/MMM/YYYY, h:ss A')}`, inline: true },
+			{ name: 'Register Date', value: `${moment(member.user.createdAt).format('ddd/MMM/YY, h:ss A')}`, inline: true },
 			{ name: '\u200b', value: '\u200b', inline: true },
-			{ name: 'Joined Date', value: `${moment(member.JoinedAt).format('ddd, DD/MMM/YYYY, h:ss A')}`, inline: true },
+			{ name: 'Joined Date', value: `${moment(member.JoinedAt).format('ddd/MMM/YYYY, h:ss A')}`, inline: true },
 			{ name: 'Name', value: `${member.user.username}`, inline: true },
 			{ name: '\u200b', value: '\u200b', inline: true },
 			{ name: 'Nickame', value: `${member.nickname !== null ? `${member.nickname}` : 'None'}`, inline: true },
