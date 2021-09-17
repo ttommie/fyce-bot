@@ -22,7 +22,6 @@ module.exports = ({
 		// CREATE TEST EMBED
 		const whoisEmbed = new MessageEmbed();
 		whoisEmbed.setColor('#36393F');
-		// whoisEmbed.setTitle(`${user.tag}'s Avatar`);
 		whoisEmbed.setAuthor('Fyce Bot - /userinfo', member.user.avatarURL(), 'https://github.com/ttommie/fyce-bot/');
 		whoisEmbed.setDescription(`${member}`);
 		whoisEmbed.setThumbnail(`${member.user.displayAvatarURL()}`);
