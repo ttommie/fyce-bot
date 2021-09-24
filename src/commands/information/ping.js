@@ -6,7 +6,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')
-		.setDescription('Replies with Pong!'),
+		.setDescription('Replies with Pong! 🏓'),
 	async execute(interaction) {
 		const pingEmbed = new MessageEmbed();
 		pingEmbed.setColor('#36393F');

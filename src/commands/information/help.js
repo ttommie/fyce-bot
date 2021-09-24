@@ -1,27 +1,38 @@
 // REQUIRE PACKAGES
-const { readdirSync } = require('fs');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { MessageActionRow, MessageSelectMenu } = require('discord.js');
 
 // EXPORT PING COMMAND DATA TO NODE
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
-		.setDescription('Help Command to provide proper usage of all commands for fyce-bot'),
+		.setDescription('Help Command to provide proper usage of all commands for fyce-bot ❓'),
 	async execute(interaction) {
-		// DEFINE A DIRECTORIES VARIABLE
-		var directories = []
-		// REFERENCE COMMAND FOLDER
-		const commandFolder = readdirSync('./src/commands');
+		// CREATE A DROP DOWN MENU
+		const row = new MessageActionRow()
+		.addComponents(
+			// CREATE THE SELECT MENU WITH OPTIONS
+			new MessageSelectMenu()
+				.setCustomId('First Select') // SET A CUSTOM ID TO REFERENCE THE MENU
+				.setPlaceholder('Nothing Selected') // SET A PLACE HOLDER BEFORE A SELECTION IS MADE
+				.addOptions([ // ADD DIFFERENT OPTIONS WITH VALUES
+					{
+						label: 'Select me',
+						description: 'This is a description',
+						value: 'first_option',
+					},
+					{
+						label: 'You can select me too',
+						description: 'This is also a description',
+						value: 'second_option',
+					},
+				]),
+		);
 
-		// FOR EACH FOLDER WITHIN THE COMMAND FOLDER PUSH IT TO THE ARRAY
-		for (const folders of commandFolder) {
-			directories.push(folders.toUpperCase()) 
-		}
-		
-		// CONSOLE LOG TO TEST IF WE ARE PROPERLY GETTING ALL FILE DIRECTORIES
-		console.log(directories)
+		// SEND THE REPLY WITH A MESSAGE AND THE SELECT MENU
+		await interaction.reply({ content: 'Help command under development', components: [row] });
 
-		await interaction.reply('Help command under development');
-	},
+		/* NOT SURE WHY BUT IT'S RETURNING FALSE WHEN IT SHOULD BE TRUE */
+		console.log(interaction.isSelectMenu())
+	}
 };

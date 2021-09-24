@@ -10,7 +10,7 @@ module.exports = ({
 		.setDescription('Display a users profile information.')
 		.addUserOption(option =>
 			option.setName('target')
-				.setDescription('Target a user...')
+				.setDescription('Target a user... 👥')
 				.setRequired(false)),
 	async execute(interaction) {
 		// REFERENCE THE TARGET
