@@ -17,10 +17,5 @@ module.exports = {
 				await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 			}
 		}
-		else if (interaction.isSelectMenu()) {
-			if (interaction.customId === 'select') {
-				await interaction.reply({ content: 'Something was selected!', components: [] });
-			}
-		}
 	},
 };

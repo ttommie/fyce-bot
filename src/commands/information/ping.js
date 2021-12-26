@@ -12,7 +12,7 @@ module.exports = {
 		pingEmbed.setColor('#36393F');
 		pingEmbed.setAuthor('Fyce Bot - /ping', interaction.user.avatarURL(), 'https://github.com/ttommie/fyce-bot/');
 		pingEmbed.setTitle('Ping Information');
-		pingEmbed.setDescription(`API Latency is **${Math.round(interaction.client.ws.ping)}** ms`)
-		await interaction.reply({  embeds: [pingEmbed] });
+		pingEmbed.setDescription(`API Latency is **${Math.round(interaction.client.ws.ping)}** ms`);
+		await interaction.reply({ embeds: [pingEmbed] });
 	},
 };
