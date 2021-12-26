@@ -6,7 +6,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = ({
 	data: new SlashCommandBuilder()
 		.setName('serverinfo')
-		.setDescription('Basic Server Info.'),
+		.setDescription('Basic Server Info. 🚩'),
 	async execute(interaction) {
 		// REFERENCE THE GUILD
 		const guild = interaction.guild;

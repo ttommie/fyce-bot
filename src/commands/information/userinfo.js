@@ -10,7 +10,7 @@ module.exports = ({
 		.setDescription('Display a users profile information.')
 		.addUserOption(option =>
 			option.setName('target')
-				.setDescription('Target a user...')
+				.setDescription('Target a user... 👥')
 				.setRequired(false)),
 	async execute(interaction) {
 		// REFERENCE THE TARGET
@@ -22,10 +22,9 @@ module.exports = ({
 		// CREATE TEST EMBED
 		const whoisEmbed = new MessageEmbed();
 		whoisEmbed.setColor('#36393F');
-		// whoisEmbed.setTitle(`${user.tag}'s Avatar`);
 		whoisEmbed.setAuthor('Fyce Bot - /userinfo', member.user.avatarURL(), 'https://github.com/ttommie/fyce-bot/');
 		whoisEmbed.setDescription(`${member}`);
-		whoisEmbed.setThumbnail(`${member.user.displayAvatarURL()}`);
+		whoisEmbed.setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}`);
 		whoisEmbed.addFields(
 			{ name: 'Register Date', value: `${moment(member.user.createdAt).format('ddd/MMM/YY, h:ss A')}`, inline: true },
 			{ name: '\u200b', value: '\u200b', inline: true },

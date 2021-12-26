@@ -6,7 +6,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = ({
 	data: new SlashCommandBuilder()
 		.setName('avatar')
-		.setDescription('Display a users avatar.')
+		.setDescription('Display a users avatar. 👤')
 		.addUserOption(option =>
 			option.setName('target')
 				.setDescription('Target a user...')
